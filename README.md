@@ -73,9 +73,9 @@ http://<server-ip>:8080/sampleapp
 
 📸 Screenshots
 Visual proof of the pipeline execution and deployment is available in the screenshots/ directory:
-Jenkins job configuration
-Successful build output
-Application running on Tomcat
+Jenkins job configuration.
+Successful build output.
+Application running on Tomcat.
 
 📊 Project Documentation
 Detailed project explanation and architecture diagrams are available here:
