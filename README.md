@@ -62,11 +62,9 @@ jenkins-tomcat-ci-cd/
 
 └── screenshots/
 
-   ├── jenkins-job.png
-    
-   ├── build-success.png
-    
-   └── tomcat-app.png
+     ├── jenkins-job.png
+     ├── build-success.png
+     └── tomcat-app.png
     
 
 ⚙️ Jenkins Pipeline Stages
