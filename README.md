@@ -57,8 +57,8 @@ jenkins-tomcat-ci-cd/
 ├── src/
 
 ├── docs/
-   │
-│   └── Jenkins_Tomcat_CICD_Project.pptx
+   
+│   ├──  Jenkins_Tomcat_CICD_Project.pptx
 
 └── screenshots/
      ├── jenkins-job.png
