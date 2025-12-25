@@ -61,7 +61,6 @@ jenkins-tomcat-ci-cd/
 │   └── Jenkins_Tomcat_CICD_Project.pptx
 
 └── screenshots/
-
      ├── jenkins-job.png
      ├── build-success.png
      └── tomcat-app.png
