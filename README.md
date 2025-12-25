@@ -44,19 +44,28 @@ Apache Tomcat
 7. Application becomes accessible via browser  
 
 
-
 📂 Project Structure
 
 jenkins-tomcat-ci-cd/
+
 ├── README.md
+
 ├── Jenkinsfile
+
 ├── pom.xml
+
 ├── src/
+
 ├── docs/
+
 │   └── Jenkins_Tomcat_CICD_Project.pptx
+
 └── screenshots/
+
     ├── jenkins-job.png
+    
     ├── build-success.png
+    
     └── tomcat-app.png
     
 
