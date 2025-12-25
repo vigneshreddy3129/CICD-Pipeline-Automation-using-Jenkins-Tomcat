@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/your-username/jenkins-tomcat-ci-cd.git'
+                git 'https://github.com/vigneshreddy3129/CICD-Pipeline-Automation-using-Jenkins-Tomcat.git'
             }
         }
 
