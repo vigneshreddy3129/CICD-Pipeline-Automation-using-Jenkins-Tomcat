@@ -49,20 +49,23 @@ Apache Tomcat
 jenkins-tomcat-ci-cd/
 
 ├── README.md
-
+│
 ├── Jenkinsfile
-
+│
 ├── pom.xml
-
+│
 ├── src/
-
+│
 ├── docs/
-
+│   │
 │   └── Jenkins_Tomcat_CICD_Project.pptx
-
+│
 └── screenshots/
+     │
      ├── jenkins-job.png
+     │
      ├── build-success.png
+     │
      └── tomcat-app.png
     
 
