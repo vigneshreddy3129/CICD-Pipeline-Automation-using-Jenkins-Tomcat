@@ -1,4 +1,4 @@
- # Jenkins–Tomcat CI/CD Pipeline Automation
+ # CI/CD Pipeline Automation using Jenkins–Tomcat 
 
  📌 Project Overview
 This project demonstrates **CI/CD pipeline automation using Jenkins** to build, test, and deploy a **Java web application** on **Apache Tomcat**.  
