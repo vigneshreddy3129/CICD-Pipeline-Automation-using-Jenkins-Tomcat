@@ -56,13 +56,13 @@ jenkins-tomcat-ci-cd/
 
 ├── src/
 
-├── docs/
+├── docs
     ├──  Jenkins_Tomcat_CICD_Project.pptx
 
-└── screenshots/
+└── screenshots
      ├── jenkins-job.png
      ├── build-success.png
-     └── tomcat-app.png
+     ├── tomcat-app.png
     
 
 ⚙️ Jenkins Pipeline Stages
