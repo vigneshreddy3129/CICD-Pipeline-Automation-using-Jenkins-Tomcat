@@ -55,23 +55,16 @@ jenkins-tomcat-ci-cd/
     
 ⚙️ Jenkins Pipeline Stages
 Checkout – Pull source code from GitHub
-
 Build – Compile and package using Maven
-
 Test – Execute unit tests
-
 Deploy – Deploy WAR file to Apache Tomcat
 
 📦 Build Command
 To build the application manually:
-
-bash
-Copy code
 mvn clean package
+
 🚀 Deployment
 After a successful build, the WAR file is deployed to:
-
-bash
 $TOMCAT_HOME/webapps/
 
 🌐 Application Access
