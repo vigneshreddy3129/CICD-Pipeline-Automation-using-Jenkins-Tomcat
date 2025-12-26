@@ -105,7 +105,7 @@ http://<server-ip>:8080/sampleapp
 
 Visual proof of the pipeline execution and deployment is available in the screenshots/ directory:
 
-Jenkins job configuration.
+AWS server
 
 Successful build output.
 
