@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     tools {
-        maven 'Maven'
-        jdk 'Java-11'
+        maven 'Mvn'
+        jdk 'Java'
     }
 
     stages {
@@ -15,15 +15,15 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh 'mvn clean package'
+                sh 'mvn package'
             }
         }
 
-        stage('Deploy to Tomcat') {
+        stage('tomcat-deploy') {
             steps {
-                sh '''
-                cp target/sampleapp.war /opt/tomcat/webapps/
-                '''
+                sh 'cp /var/lib/jenkins/workspace/tomcat-deploy/target/*.war  /opt/apache-tomcat-9.0.113/webapps/'
+                
+                
             }
         }
     }
