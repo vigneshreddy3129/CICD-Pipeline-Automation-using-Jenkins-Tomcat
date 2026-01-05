@@ -26,11 +26,6 @@ pipeline {
                 
             }
         }
-        stage("docker image"){
-            steps {
-                sh "docker build -f tomcat -t "tomcat:1" ."
-                sh "docker run -d -p 8081:8080 tomcat:1"
-            }
-        }
+
     }
 }
