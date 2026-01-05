@@ -1,119 +1,203 @@
-# CI/CD Pipeline Automation using Jenkins–Tomcat 
+# 🚀 CI/CD Pipeline Automation Using Jenkins and Apache Tomcat (Single Server)
 
+## 📌 Project Overview
+This project demonstrates a **CI/CD pipeline** for deploying a **Java web application** using **Jenkins and Apache Tomcat** on a **single Linux server**.
 
+The pipeline automates:
+- Pulling source code from Git
+- Building the application using Maven
+- Deploying the WAR file to Apache Tomcat
 
- 📌 Project Overview
-This project demonstrates **CI/CD pipeline automation using Jenkins** to build, test, and deploy a **Java web application** on **Apache Tomcat**.  
-The pipeline uses **Maven** for build automation and runs on a **Linux environment**, simulating a real-world DevOps workflow.
+This setup represents a **classic and widely used CI/CD architecture**, commonly found in **enterprise environments**.
 
+---
 
-
-
-🏗️ Architecture
+## 🏗️ Architecture (Single Server)
+```text
 Developer → GitHub
+              ↓
+          Jenkins
+        (Build + Package)
+              ↓
+            Maven
+          (WAR File)
+              ↓
+        Apache Tomcat
+        (Application Server)
+              ↓
+        Web Application
+```
+🛠️ Tools & Technologies Used
+- Linux (Ubuntu)
 
-↓
+- Java 11
 
-Jenkins
-(Build + Test)
+- Git
 
-↓
+- Apache Maven
 
-Maven
-(WAR Package)
+- Jenkins
 
-↓
-
-Apache Tomcat
-(Application Deploy)
-
-
-
- 🛠️ Tools & Technologies Used
-- Jenkins – CI/CD pipeline automation  
-- Apache Maven – Build and dependency management  
-- Apache Tomcat – Application server  
-- Git & GitHub – Version control  
-- Java 8 – Application runtime  
-- Linux – Server environment  
-
-
- 🔄 CI/CD Workflow
-1. Developer pushes code to GitHub  
-2. Jenkins pipeline is triggered automatically  
-3. Jenkins checks out source code  
-4. Maven compiles the code and runs unit tests  
-5. WAR file is generated  
-6. Jenkins deploys the WAR file to Apache Tomcat  
-7. Application becomes accessible via browser  
-
+- Apache Tomcat
 
 📂 Project Structure
-
+```text
 jenkins-tomcat-ci-cd/
-
 ├── README.md
-
-├── Jenkinsfile
-
+├── Jenkinsfile (optional)
 ├── pom.xml
-
 ├── src/
+│   └── main/
+│       └── webapp/
+└── screenshots/
+```
+🔧 Prerequisites
+- One Linux server (Ubuntu 20.04 / 22.04)
 
-├── docs
-    ├──  Jenkins_Tomcat_CICD_Project.pptx
+- User with sudo access
 
-└── screenshots
-     ├── jenkins-job.png
-     ├── build-success.png
-     ├── tomcat-app.png
-    
+- Internet connectivity
 
-⚙️ Jenkins Pipeline Stages
+🔹 Step-by-Step Setup (Linux Commands)
+STEP 1️⃣ Update System
+```text
+sudo apt update -y
+sudo apt upgrade -y
+```
+STEP 2️⃣ Install Java
+```text
+sudo apt install openjdk-11-jdk -y
+java -version
+```
+STEP 3️⃣ Install Jenkins
+```text
+curl -fsSL https://pkg.jenkins.io/debian/jenkins.io-2023.key | sudo tee \
+  /usr/share/keyrings/jenkins-keyring.asc > /dev/null
 
-Checkout – Pull source code from GitHub
+echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
+  https://pkg.jenkins.io/debian binary/ | sudo tee \
+  /etc/apt/sources.list.d/jenkins.list > /dev/null
 
-Build – Compile and package using Maven
+sudo apt update -y
+sudo apt install jenkins -y
+```
+Start Jenkins:
 
-Test – Execute unit tests
+```text
+sudo systemctl start jenkins
+sudo systemctl enable jenkins
+```
+Access Jenkins:
 
-Deploy – Deploy WAR file to Apache Tomcat
+```text
+http://SERVER_IP:8080
+```
+Get admin password:
 
+```text
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+```
+STEP 4️⃣ Install Maven
+```text
+sudo apt install maven -y
+mvn -version
+```
+STEP 5️⃣ Install Git
+```text
+sudo apt install git -y
+git --version
+```
+STEP 6️⃣ Install Apache Tomcat
+```text
+cd /opt
+sudo wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.87/bin/apache-tomcat-9.0.87.tar.gz
+sudo tar -xvf apache-tomcat-9.0.87.tar.gz
+sudo mv apache-tomcat-9.0.87 tomcat
+```
+Set permissions:
 
-📦 Build Command
+```text
+sudo chmod -R 775 /opt/tomcat
+sudo chown -R $USER:$USER /opt/tomcat
+```
+Start Tomcat:
 
-To build the application manually:
+```text
+/opt/tomcat/bin/startup.sh
+```
+Access Tomcat:
 
+```text
+http://SERVER_IP:8080
+```
+⚙️ Jenkins Job Configuration
+Job Type
+- Freestyle Project
+
+Source Code Management
+- Git
+
+- Repository URL: https://github.com/your-repo/sampleapp.git
+
+Build Step – Maven
+```text
 mvn clean package
+```
+WAR file created at:
 
+```text
+target/*.war
+```
+Deploy WAR to Tomcat
+```text
+cp target/*.war /opt/tomcat/webapps/
+```
+Restart Tomcat:
 
-🚀 Deployment
-
-After a successful build, the WAR file is deployed to:
-
-$TOMCAT_HOME/webapps/
-
-
+```text
+/opt/tomcat/bin/shutdown.sh
+/opt/tomcat/bin/startup.sh
+```
 🌐 Application Access
+```text
+http://SERVER_IP:8080/<application-name>
+```
+🔄 CI/CD Workflow Summary
+- Developer pushes code to GitHub
 
-Access the application using:
+- Jenkins pulls the source code
 
-http://<server-ip>:8080/sampleapp
+- Maven builds the WAR file
 
+- Jenkins deploys WAR to Tomcat
 
-📸 Screenshots
+- Application is live
 
-Visual proof of the pipeline execution and deployment is available in the screenshots/ directory:
+📌 Key DevOps Concepts Demonstrated
+- CI/CD Pipeline Automation
 
-AWS server
+- Jenkins Build Automation
 
-Successful build output.
+- Maven Dependency Management
 
-Application running on Tomcat.
+- Tomcat Application Deployment
 
+- Linux Server Administration
 
-📊 Project Documentation
+🧠 Interview Explanation (Short)
+This project implements a CI/CD pipeline using Jenkins to automate the build and deployment of a Java web application. Maven handles packaging, and Apache Tomcat hosts the application on a Linux server.
 
-Detailed project explanation and architecture diagrams are available here:
+✅ Future Enhancements
+- Jenkins Pipeline (Jenkinsfile)
 
-docs/Jenkins_Tomcat_CICD_Project.pptx                                           
+- GitHub Webhook integration
+
+- Automated testing stage
+
+- Multi-server deployment
+
+- Docker-based Tomcat migration
+
+📎 Author
+Vignesh Reddy
+DevOps | Jenkins | CI/CD | Apache Tomcat
